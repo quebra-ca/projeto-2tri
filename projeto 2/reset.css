@@ -1,0 +1,250 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    display: block;
+}
+
+body {
+    line-height: 1;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+blockquote,
+q {
+    quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+    content: '';
+    content: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+.banner{
+    background: var(--azul-degrade);
+    color: var(--branco);
+    text - align: center;
+}
+.banner_titulo{
+    font-size: 18px;
+    font-weight:700px;
+}
+
+.banner_texto{
+    font-weight:500px;
+}
+.banner {
+    background: var(--azul-degrade);
+    color: var(--branco);
+    text-align: center;
+    padding: 2.5em 2em;
+}
+
+.banner__titulo {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.banner__texto {
+    font-weight: 500;
+    margin: 1em0;
+}
+
+/* código omitido */
+
+.banner__pesquisa {
+    background-color: transparent;
+    border: 1px solid var(--branco);
+    color: var(--branco);
+    border-radius: 24px;
+    padding: 1em;
+    width: 100%;
+}
+COPIAR CÓDIGO
+Colocamos, agora ele está com o espaçamento dos lados, em cima e embaixo.
+
+Falta definirmos o tamanho, vamos colocar o width como 100%, porque aquela largura ocupa 100% do que pode ocupar aqui no banner.
+
+Agora temos algo bem semelhante ao resultado que deveria ficar, ele está maior do que o texto que está em cima, a borda está ali branquinha, está com o fundo da mesma cor do banner.
+
+Falta configurarmos esse placeholder.
+
+Configurando o placeholder
+O placeholder tem a lupa, ele é centralizado e a cor é branca.
+
+Para isso, primeiro vamos baixar a lupa. No Figma, da mesma forma que baixamos os ícones no header, faremos isso agora. Clicamos na lupa e no menu da direita encontraremos export, onde configuraremos para SVG e clicaremos em "export".
+
+Agora levaremos para a pasta do nosso projeto na nossa máquina. Estamos colocando no "dev > alurabooks > img", e ele veio com o nome de vector, então vamos trocar para lupa.
+
+Vamos começar a trabalhar agora.
+
+Para acessar aquele placeholder, vamos no banner.css colocar novamente a classe, que é banner__pesquisa::placeholder.
+
+Dentro, definimos novamente a fonte, tamanho e peso. Conferimos no Figma qual é clicanos em cima do placeholder ou no menu da direita e no inspect. A fonte é a mesma, o peso é 400 e o tamanho é 14.
+
+Inserimos a font-family que será a variável da fonte principal: var(--fonte-principal). O font-size de 14px e font-weight é 400.
+
+banner.css
+
+/* código omitido */
+
+.banner__pesquisa::placeholder {
+    font-family: var(--fonte-principal);
+    font-size: 14px;
+    font-weight: 400;
+}
+COPIAR CÓDIGO
+Salvamos e voltamos ao navegador para verificar o resultado. Agora, a fonte está aplicada.
+
+Quando colocamos no body aquela fonte determinada, com tamanho e peso, estávamos atingindo todos os elementos, entre si, não os atributos dentro desses elementos. Ou seja, o placeholder não recebeu aquelas configurações da fonte, então precisamos colocar de novo, que foi isso que fizemos agora.
+
+Então, nada que nunca tenhamos visto, que é font-family, font-size, font-weight.
+
+Também, precisamos que ele seja alinhado para o centro. Para isso, usamos text-align passando center. A cor desse placeholder é branca, então, vamos colocar o color em branco.
+
+banner.css
+
+.banner__pesquisa::placeholder {
+    font-family: var(--fonte-principal);
+    font-size: 14px;
+    font-weight: 400;
+    text-align: center;
+    color: var(--branco);
+}
+.banner__pesquisa::placeholder {
+    font-family: var(--fonte-principal);
+    font-size: 14px;
+    font-weight: 400;
+    text-align: center;
+    color: var(--branco);
+    background: url("../img/Lupa.svg");
+}
+.banner__pesquisa::placeholder {
+    font-family: var(--fonte-principal);
+    font-size: 14px;
+    font-weight: 400;
+    text-align: center;
+    color: var(--branco);
+    background: url("../img/Lupa.svg") no-repeat;
+}
+.banner__pesquisa::placeholder {
+    font-family: var(--fonte-principal);
+    font-size: 14px;
+    font-weight: 400;
+    text-align: center;
+    color: var(--branco);
+    background: url("../img/Lupa.svg") no-repeat;
+    background-position: 1em;
